@@ -1,7 +1,11 @@
 from PIL import Image, ImageOps
 import os
 
-size = (100, 150)
+
+x_size = int(input("Pixels x: "))
+y_size = int(input("Pixels y: "))
+
+size = (x_size, y_size)
 mode = input("Select mode: 1 - contain, 2 - cover, 3 - fit, 4 - pad: ")
 #contain, cover, fit, pad
 
@@ -17,7 +21,7 @@ if files:
     first_file_path = os.path.join(directory, files[0])
 
 else:
-    print("No files found in the directory.")
+    raise Exception("No files found in the directory.")
 
 file_name = first_file_path.split("/", -1)
 file_name = file_name[-1].rstrip(".png")
